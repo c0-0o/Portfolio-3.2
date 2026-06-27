@@ -3,7 +3,6 @@ import "./Home.scss";
 import ProjectCard from "../components/Project-card";
 import PrimaryButton from "../components/Primary-button";
 import SectionTitle from "../components/Section-title";
-import aboutimg from "../assets/about.png";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer.jsx";
 import HeroModel from "../components/HeroModel";
@@ -39,7 +38,7 @@ const Home = () => {
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     aboutElements.forEach((el) => el && observer.observe(el));
@@ -54,7 +53,7 @@ const Home = () => {
     if (!heroRef.current) return;
     const observer = new IntersectionObserver(
       ([entry]) => setHeroVisible(entry.isIntersecting),
-      { threshold: 0 } // triggers as soon as any part enters/leaves viewport
+      { threshold: 0 }, // triggers as soon as any part enters/leaves viewport
     );
     observer.observe(heroRef.current);
     return () => observer.disconnect();
@@ -69,7 +68,8 @@ const Home = () => {
             <span className="highlight">FRONTEND DEVELOPER</span>
           </a>
         </div>
-        {heroVisible && <HeroModel />} {/* Only render HeroModel when visible */}
+        {heroVisible && <HeroModel />}{" "}
+        {/* Only render HeroModel when visible */}
         <div className="Hero-container">
           <div className="Hero-name">
             <a>
@@ -107,7 +107,10 @@ const Home = () => {
               style={{ width: "195px" }}
             />
           </div>
-          <img src={aboutimg} alt="About Dipak Pahari" />
+          <img
+            src="/dipak-pahari.png"
+            alt="Dipak Pahari"
+          />
         </div>
       </div>
       <Footer />
